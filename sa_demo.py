@@ -52,8 +52,8 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.corpus import stopwords
 
 # scikit-learn ml libs
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error, explained_variance_score, median_absolute_error
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, median_absolute_error
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.cross_validation import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -131,7 +131,7 @@ if __name__ == '__main__':
 	# Load Amazon Data
 	print 'Step One: Loading Amazon data...'
 	df = process_incoming_data('review_data/SAR14.txt')
-	df, _ = train_test_split(df, test_size=0.99)
+	# df, _ = train_test_split(df, test_size=0.99) # I cut down the data when I tested.
 
 	y, x = df.pop('overall'), df.pop('reviewText') # raw features and labels
 	t()
